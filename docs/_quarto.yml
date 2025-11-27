@@ -7,8 +7,8 @@ project:
 book:
   title: Quarto Julia Template
   author: "Wen-Wei Tseng"
-  repo-url: https://github.com/sosiristseng/template-quarto-julia
-  site-url: https://sosiristseng.github.io/template-quarto-julia
+  repo-url: https://github.com/sosiristseng/template-quarto-literate
+  site-url: https://sosiristseng.github.io/template-quarto-literate
   page-navigation: true
   bread-crumbs: true
   chapters:
