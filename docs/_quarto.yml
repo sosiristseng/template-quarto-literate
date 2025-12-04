@@ -10,7 +10,7 @@ website:
   bread-crumbs: true
   back-to-top-navigation: true
   repo-url: https://github.com/sosiristseng/template-quarto-literate
-  site-url: https://sosiristseng.github.io/template-quarto-literate
+  site-url: https://sosiristseng.github.io/template-quarto-literate/
   search:
     show-item-context: true
     type: overlay
