@@ -158,11 +158,8 @@ docs/site/
 # Manifest.toml
 LocalPreferences.toml
 
-# Oupput
-/site
-/public
-
 # Quarto
 _site/
-**/.quarto/
-**/*.quarto_ipynb
+site_libs/
+.quarto/
+*.quarto_ipynb/

@@ -118,7 +118,7 @@ jobs:
       uses: actions/upload-pages-artifact@v4
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
-        path: _site/
+        path: docs/_site/
 
   # CI conclusion for GitHub status check
   # Adaped from https://brunoscheufler.com/blog/2022-04-09-the-required-github-status-check-that-wasnt
