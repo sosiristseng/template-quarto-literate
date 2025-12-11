@@ -100,7 +100,7 @@ function main(;
             end
         end
         # Print execution result
-        Tables.table([ipynbs ts_ipynb]; header=["Notebook", "Elapsed (s)"]) |> markdown_table(String) |> print
+        Tables.table([nblist ts_ipynb]; header=["Notebook", "Elapsed (s)"]) |> markdown_table(String) |> print
     end
 end
 
