@@ -76,7 +76,8 @@ end
 
 function main(;
     basedir=get(ENV, "DOCDIR", "docs"),
-    cachedir=get(ENV, "NBCACHE", ".cache"))
+    cachedir=get(ENV, "NBCACHE", ".cache"),
+    rmsvg=true)
 
     mkpath(cachedir)
     clean_cache(cachedir)
