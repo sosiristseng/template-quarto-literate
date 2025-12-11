@@ -18,7 +18,9 @@ env:
   JULIA_NUM_THREADS: '2'
   JULIA_CPU_TARGET: 'generic;icelake-server,clone_all;znver3,clone_all'
   NBCACHE: '.cache'
-  LITERATE_PROC: '2'
+  NBCONVERT_JOBS: '2'
+  TIMEOUT: '600'
+  ALLOWERRORS: 'false'
   PY_VER: '3.13'
 
 jobs:
@@ -72,7 +74,7 @@ jobs:
       shell: julia --color=yes {0}
       run: |
         using Pkg, Dates
-        Pkg.add(["Literate", "JSON", "Tables", "MarkdownTables", "SHA"])
+        Pkg.add(["JSON", "Tables", "MarkdownTables", "SHA", "IJulia"])
         Pkg.activate(".")
         Pkg.instantiate()
         Pkg.precompile()
@@ -87,7 +89,7 @@ jobs:
         key: ${{ steps.cache-julia.outputs.cache-primary-key }}
     - name: Run notebooks
       if: ${{ steps.cache-nb.outputs.cache-hit != 'true' }}
-      run: julia --project=@. --color=yes -p ${{ env.LITERATE_PROC }} .github/ci.jl
+      run: julia --project=@. --color=yes .github/ci.jl
     - name: Upload Notebooks
       uses: actions/upload-artifact@v5
       with:
@@ -110,8 +112,6 @@ jobs:
       run: cp --verbose -rf ${{ env.NBCACHE }}/docs/* docs/
     - name: Setup Quarto
       uses: quarto-dev/quarto-actions/setup@v2
-    - name: Remove all jl files preventing Quarto from rendering them
-      run: find docs/ -type f -name '*.jl' -delete
     - name: Render Quarto Project
       run: quarto render docs/
     - name: Upload pages artifact
